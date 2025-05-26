@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "n8n Gemini Copilot",
+  "version": "0.1.0",
+  "description": "A Chrome extension to assist in creating and editing n8n workflows using the Gemini API.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.n8n.cloud/*",
+    "*://localhost/*",
+    "*://*.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.n8n.cloud/*", "*://localhost/*", "*://app.n8n.io/*"],
+      "js": ["content_script.js"]
+    }
+  ]
+}
