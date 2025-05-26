@@ -1,0 +1,152 @@
+/* n8n-gemini-copilot/content/ui/chat.css */
+
+#gemini-chat-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px; /* Initial width */
+  min-width: 250px; /* Minimum width for resizing */
+  max-width: 80vw;  /* Maximum width for resizing */
+  height: 100vh;
+  background-color: #f9f9f9;
+  border-left: 1px solid #ccc;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+  z-index: 10000; /* High z-index to appear above most n8n UI */
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  resize: horizontal; /* Allow horizontal resizing */
+  overflow: hidden; /* Prevent content spill during resize, manage scrolling internally */
+}
+
+#gemini-chat-sidebar * {
+  box-sizing: border-box;
+}
+
+.gemini-chat-header {
+  padding: 10px 15px;
+  background-color: #efefef;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px; /* Fixed height */
+}
+
+.gemini-chat-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.gemini-chat-settings-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px;
+}
+.gemini-chat-settings-btn:hover {
+  opacity: 0.7;
+}
+
+.gemini-chat-messages {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gemini-chat-message {
+  padding: 8px 12px;
+  border-radius: 12px;
+  max-width: 85%;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+.gemini-chat-message.user-message {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.gemini-chat-message.ai-message {
+  background-color: #e9e9eb;
+  color: #333;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.gemini-chat-message.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  align-self: flex-start;
+  border: 1px solid #c62828;
+}
+
+
+.gemini-chat-message pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: rgba(0,0,0,0.05);
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+.gemini-chat-input-area {
+  border-top: 1px solid #ddd;
+  padding: 10px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  min-height: 60px; /* Fixed min height */
+}
+
+#gemini-chat-input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 14px;
+  resize: none; /* If using textarea */
+}
+
+#gemini-chat-send-btn {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#gemini-chat-send-btn:hover {
+  background-color: #0056b3;
+}
+
+#gemini-chat-send-btn:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+/* For the illustrative div if needed, though the main focus is the sidebar */
+#gemini-chat {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  padding: 10px;
+  background: lightblue;
+  border: 1px solid blue;
+  z-index: 9999; /* Below sidebar */
+}
